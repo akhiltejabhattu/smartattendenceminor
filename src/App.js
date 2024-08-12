@@ -11,12 +11,12 @@ function App() {
   return (
     <div>
       <Routes>
-        <Route path="/" element={<Login />} />
-        <Route path="/facultydashboard" element={<Dashboard />} />
-        <Route path="/qrdisplay" element={<Qrdisplay />} />
-        <Route path="/stdauthenticate" element={<Authenticate />} />
-        <Route path="/studentdashboard" element={<Stddashboard />} />
-        <Route path="/studentlogin" element={<Stdlogin />} />
+        <Route path="/smartattendenceminor" element={<Login />} />
+        <Route path="/smartattendenceminor/facultydashboard" element={<Dashboard />} />
+        <Route path="/smartattendenceminor/qrdisplay" element={<Qrdisplay />} />
+        <Route path="/smartattendenceminor/stdauthenticate" element={<Authenticate />} />
+        <Route path="/smartattendenceminor/studentdashboard" element={<Stddashboard />} />
+        <Route path="/smartattendenceminor/studentlogin" element={<Stdlogin />} />
       </Routes>
     </div>
   );
