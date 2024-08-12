@@ -1,0 +1,15 @@
+{
+  "files": {
+    "main.css": "/smartattendenceminor/static/css/main.44b2ce24.css",
+    "main.js": "/smartattendenceminor/static/js/main.ca81df51.js",
+    "static/js/453.ed3810f9.chunk.js": "/smartattendenceminor/static/js/453.ed3810f9.chunk.js",
+    "index.html": "/smartattendenceminor/index.html",
+    "main.44b2ce24.css.map": "/smartattendenceminor/static/css/main.44b2ce24.css.map",
+    "main.ca81df51.js.map": "/smartattendenceminor/static/js/main.ca81df51.js.map",
+    "453.ed3810f9.chunk.js.map": "/smartattendenceminor/static/js/453.ed3810f9.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.44b2ce24.css",
+    "static/js/main.ca81df51.js"
+  ]
+}
