@@ -1,23 +1,23 @@
-import logo from './logo.svg';
-import './App.css';
+import { Route, Routes } from "react-router-dom";
+import "./App.css";
+import Login from "./Faculty/Login";
+import Dashboard from "./Faculty/Dashboard";
+import Qrdisplay from "./Faculty/Qrdisplay";
+import Stdlogin from "./Student/Stdlogin";
+import Stddashboard from "./Student/Stddashboard";
+import Authenticate from "./Student/Authenticate";
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      <Routes>
+        <Route path="/" element={<Login />} />
+        <Route path="/facultydashboard" element={<Dashboard />} />
+        <Route path="/qrdisplay" element={<Qrdisplay />} />
+        <Route path="/stdauthenticate" element={<Authenticate />} />
+        <Route path="/studentdashboard" element={<Stddashboard />} />
+        <Route path="/studentlogin" element={<Stdlogin />} />
+      </Routes>
     </div>
   );
 }
