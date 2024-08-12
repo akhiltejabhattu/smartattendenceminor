@@ -1,4 +1,4 @@
-import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
+import { Route, Routes } from "react-router-dom";
 import "./App.css";
 import Login from "./Faculty/Login";
 import Dashboard from "./Faculty/Dashboard";
@@ -9,18 +9,22 @@ import Authenticate from "./Student/Authenticate";
 
 function App() {
   return (
-    <Router basename="/smartattendenceminor">
-      <div>
-        <Routes>
-          <Route path="/" element={<Login />} />
-          <Route path="/facultydashboard" element={<Dashboard />} />
-          <Route path="/qrdisplay" element={<Qrdisplay />} />
-          <Route path="/stdauthenticate" element={<Authenticate />} />
-          <Route path="/studentdashboard" element={<Stddashboard />} />
-          <Route path="/studentlogin" element={<Stdlogin />} />
-        </Routes>
-      </div>
-    </Router>
+    <div>
+      <Routes>
+        <Route path="/smartattendenceminor" element={<Login />} />
+        <Route
+          path="/smartattendenceminor/facultydashboard"
+          element={<Dashboard />}
+        />
+        <Route path="/smartattendenceminor/qrdisplay" element={<Qrdisplay />} />
+        <Route
+          path="/smartattendenceminor/stdauthenticate"
+          element={<Authenticate />}
+        />
+        <Route path="/studentdashboard" element={<Stddashboard />} />
+        <Route path="/studentlogin" element={<Stdlogin />} />
+      </Routes>
+    </div>
   );
 }
 
