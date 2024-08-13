@@ -11,6 +11,7 @@ import Authenticate from "./Student/Authenticate";
 function App() {
   return (
     <div>
+<<<<<<< HEAD
       <BrowserRouter basename="/">
         <Routes>
           <Route  path="/" element={<Login />} />
@@ -36,6 +37,22 @@ function App() {
           />
         </Routes>
       </BrowserRouter>
+=======
+      <Routes>
+        <Route path="/smartattendenceminor" element={<Login />} />
+        <Route
+          path="/smartattendenceminor/facultydashboard"
+          element={<Dashboard />}
+        />
+        <Route path="/smartattendenceminor/qrdisplay" element={<Qrdisplay />} />
+        <Route
+          path="/smartattendenceminor/stdauthenticate"
+          element={<Authenticate />}
+        />
+        <Route path="/studentdashboard" element={<Stddashboard />} />
+        <Route path="/studentlogin" element={<Stdlogin />} />
+      </Routes>
+>>>>>>> ff172cddf30f860e5319eaa14c97a01900f21b04
     </div>
   );
 }
