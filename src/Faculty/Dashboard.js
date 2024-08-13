@@ -22,7 +22,7 @@ const Dashboard = () => {
       // Create a document for the faculty with an empty students array
       await setDoc(facultyDocRef, { students: [] }, { merge: true });
       console.log("QR shared, document created with empno:", empno);
-      navigate("/smartattendenceminor/qrdisplay");
+      navigate("/qrdisplay");
     } catch (error) {
       console.error("Error creating document: ", error);
     }

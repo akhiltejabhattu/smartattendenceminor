@@ -31,7 +31,7 @@ const Login = () => {
       localStorage.setItem("empno", empno);
 
       // Navigate to the dashboard
-      navigate("/smartattendenceminor/facultydashboard");
+      navigate("/facultydashboard");
     } else {
       setErrorMessage("Invalid login credentials");
     }

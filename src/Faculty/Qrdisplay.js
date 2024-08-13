@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from "react";
 import QRCode from "react-qr-code";
-import { useNavigate } from "react-router-dom";
 import { initializeApp } from "firebase/app";
 import { getFirestore, doc, setDoc, getDoc } from "firebase/firestore";
 import { collection, query, where, getDocs } from "firebase/firestore";
@@ -10,8 +9,12 @@ function Qrdisplay() {
   const [domain, setDomain] = useState(null); // State for the QR code value
   const [attendees, setAttendees] = useState([]); // State for attendees
   const [isFetching, setIsFetching] = useState(false); // State for loading indicator
-
+  const currentUrl = window.location.href;
+  let lastSlashIndex = currentUrl.lastIndexOf("/");
+  const newUrl = lastSlashIndex > -1 ? currentUrl.slice(0, lastSlashIndex) : currentUrl;
+  console.log(newUrl)
   useEffect(() => {
+    
     const generateRandomString = () => {
       const chars =
         "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
@@ -19,9 +22,7 @@ function Qrdisplay() {
       for (let i = 0; i < 16; i++) {
         result += chars.charAt(Math.floor(Math.random() * chars.length));
       }
-      return (
-        "http://localhost:3000/smartattendenceminor/stdauthenticate?" + result
-      );
+      return newUrl + "/stdauthenticate?" + result;
     };
 
     const generateQRCode = async () => {

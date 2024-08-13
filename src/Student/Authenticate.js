@@ -148,7 +148,7 @@ const Authenticate = () => {
     if (url === value) {
       // if(await f()){
       if(1){
-      navigate("/smartattendenceminor/studentlogin");
+      navigate("/studentlogin");
       }
       else{
         setErrMsg('You are not in a class..');

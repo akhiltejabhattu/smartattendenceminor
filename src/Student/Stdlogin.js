@@ -43,7 +43,7 @@ const Stdlogin = () => {
         setErrorMessage("");
         console.log("Student login successful!");
         localStorage.setItem("rollno", rollno);
-        navigate("/smartattendenceminor/studentdashboard");
+        navigate("/studentdashboard");
       } else {
         setErrorMessage("Invalid login credentials");
       }
