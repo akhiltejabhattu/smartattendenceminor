@@ -17,7 +17,7 @@ body {
   background-size: cover;
   /* background-image: url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSUyw-VJLAiGX0q2KqgHcdH1jAuKHNWQSumGg&s'); */
 }
-.login-con{
+/* .login-con{
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -33,4 +33,4 @@ body {
   display: flex;
   flex-direction: column;
   padding-bottom: 10px;
-}
+} */

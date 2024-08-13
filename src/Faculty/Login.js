@@ -1,7 +1,8 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { collection, query, where, getDocs } from "firebase/firestore";
-import { db } from "../Faculty/Qrdisplay" 
+import { db } from "../firebase";
+
 const Login = () => {
   const navigate = useNavigate();
   const [empno, setempno] = useState("");
@@ -22,49 +23,55 @@ const Login = () => {
 
     const doc = querySnapshot.docs[0].data();
     if (doc.password === password) {
-      // Compare hashed passwords in production
+      // Successful login
       setErrorMessage("");
       console.log("Faculty login successful!");
-      navigate("/facultydashboard");
+
+      // Store employee ID in localStorage
+      localStorage.setItem("empno", empno);
+
+      // Navigate to the dashboard
+      navigate("/smartattendenceminor/facultydashboard");
     } else {
       setErrorMessage("Invalid login credentials");
     }
   };
 
   return (
-    <div className="con">
-      <div className="login-con mt-5">
-        <form onSubmit={handleLogin}>
-          <div className="input-con">
-            <label htmlFor="empno">Emp no</label>
-            <input
-              required
-              type="text"
-              name="empno"
-              id="empno"
-              placeholder="Enter Employee Number"
-              value={empno}
-              onChange={(e) => setempno(e.target.value)}
-            />
-          </div>
-          <div className="input-con">
-            <label htmlFor="password">Password</label>
-            <input
-              required
-              type="password"
-              name="password"
-              id="password"
-              placeholder="Enter password"
-              value={password}
-              onChange={(e) => setPassword(e.target.value)}
-            />
-          </div>
-          <button type="submit" className="btn btn-primary btn-block">
+    <div className="white-section">
+      <div className="login">
+        <h1 className="head">VNR VJIET</h1>
+        <div className="section">
+          <i class="fa-solid fa-user"></i>
+          <input
+            type="text"
+            name="user_name"
+            placeholder="Employee ID"
+            className="mail"
+            value={empno}
+            onChange={(e) => setempno(e.target.value)}
+          />
+        </div>
+        <br />
+        <div className="section">
+          <i className="fa-solid fa-lock"></i>
+          <input
+            type="password"
+            name="password"
+            placeholder="Password"
+            className="password"
+            value={password}
+            onChange={(e) => setPassword(e.target.value)}
+          />
+        </div>
+        <p className="login-link">
+          <button id="loginBtn" className="login-button" onClick={handleLogin}>
             Login
           </button>
-        </form>
+        </p>
         {errorMessage && <p className="text-danger mt-3">{errorMessage}</p>}
       </div>
+      <div className="content"></div>
     </div>
   );
 };

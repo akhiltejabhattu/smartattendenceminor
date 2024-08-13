@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { getFirestore, collection, getDocs } from "firebase/firestore";
 import { initializeApp } from "firebase/app";
+import "./style.css"; // Make sure to import your CSS file
 
 // Firebase config
 const firebaseConfig = {
@@ -20,7 +21,7 @@ const db = getFirestore(app);
 
 const Stdlogin = () => {
   const navigate = useNavigate();
-  const [rollno, setrollno] = useState("");
+  const [rollno, setRollno] = useState("");
   const [password, setPassword] = useState("");
   const [errorMessage, setErrorMessage] = useState("");
 
@@ -28,7 +29,6 @@ const Stdlogin = () => {
     event.preventDefault();
 
     try {
-      // Fetch student data from Firestore
       const querySnapshot = await getDocs(collection(db, "student"));
       let isValid = false;
 
@@ -42,7 +42,8 @@ const Stdlogin = () => {
       if (isValid) {
         setErrorMessage("");
         console.log("Student login successful!");
-        navigate("/studentdashboard");
+        localStorage.setItem("rollno", rollno);
+        navigate("/smartattendenceminor/studentdashboard");
       } else {
         setErrorMessage("Invalid login credentials");
       }
@@ -53,37 +54,41 @@ const Stdlogin = () => {
   };
 
   return (
-    <div className="con">
-      <div className="login-con mt-5">
-        <form onSubmit={handleLogin}>
-          <div className="input-con">
-            <label htmlFor="rollno">Roll no</label>
-            <input
-              type="text"
-              name="roll"
-              id="rollno"
-              placeholder="Enter Roll Number"
-              value={rollno}
-              onChange={(e) => setrollno(e.target.value)}
-            />
-          </div>
-          <div className="input-con">
-            <label htmlFor="password">Password</label>
-            <input
-              type="password"
-              name="password"
-              id="password"
-              placeholder="Enter password"
-              value={password}
-              onChange={(e) => setPassword(e.target.value)}
-            />
-          </div>
-          <button type="submit" className="btn btn-primary btn-block">
+    <div className="white-section">
+      <div className="login">
+        <h1 className="head">VNR VJIET</h1>
+        <div className="section">
+          <i class="fa-solid fa-user"></i>
+          <input
+            type="text"
+            name="user_name"
+            placeholder="Roll Number"
+            className="mail"
+            value={rollno}
+            onChange={(e) => setRollno(e.target.value)}
+          />
+        </div>
+        <br />
+        <div className="section">
+          <i className="fa-solid fa-lock"></i>
+          <input
+            type="password"
+            name="password"
+            placeholder="Password"
+            className="password"
+            value={password}
+            onChange={(e) => setPassword(e.target.value)}
+          />
+        </div>
+        <p className="login-link">
+          <button id="loginBtn" className="login-button" onClick={handleLogin}>
             Login
           </button>
-        </form>
+        </p>
         {errorMessage && <p className="text-danger mt-3">{errorMessage}</p>}
+
       </div>
+      <div className="content"></div>
     </div>
   );
 };
